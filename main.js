@@ -8,4 +8,11 @@ taskForm.addEventListener('submit', (evento) => {
     const novaTarefa = { nome: nomeTarefa, descricao: descricaoTarefa };
     salvarTarefa(novaTarefa);
     taskForm.reset();
-})
+});
+
+const salvarTarefa = (tarefa) => {
+    const tarefa = JSON.parse(localStorage.getItem('tarefa')) || [];
+    tarefa.push(tarefa);
+    localStorage.setItem('tarefa', JSON.stringify(tarefa));
+    carregarTarefas();
+};
